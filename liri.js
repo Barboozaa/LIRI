@@ -9,6 +9,7 @@ var spotify = new Spotify(keys.spotify);
 var client = new Twitter(keys.twitter);
 
 var cmnd = process.argv[2];
+var input = process.argv.slice(3).join(" ");
 
 if (cmnd === "my-tweets") {
     myTweets();
@@ -24,7 +25,7 @@ if (cmnd === "my-tweets") {
 }
 
 function myTweets() {
-    client.get('statuses/user_timeline', { screen_name: 'brotillathehun', count: 20 }, function(error, tweets, response) {
+    client.get('statuses/user_timeline', { count: 20 }, function(error, tweets, response) {
         if(error) {
             console.log(error)
         };
@@ -40,7 +41,6 @@ function myTweets() {
 };
 
 function spotifyThisSong() {
-    var input = process.argv[3]
     if (!input) {
         input = "Clock Catcher"
     };
