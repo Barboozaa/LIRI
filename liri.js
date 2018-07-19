@@ -17,6 +17,7 @@ if (cmnd === "my-tweets") {
     spotifyThisSong();
     console.log("spotify-this-song")
 } else if (cmnd === "movie-this") {
+    movieThis();
     console.log("movie-this")
 } else if (cmnd === "do-what-it-says") {
     console.log("do-what-it-says")
@@ -31,7 +32,7 @@ function myTweets() {
 
         for (i=0; i<data.length; i++) {
             console.log(
-                "\nUser: " + data[i].user.name + "  |  @" + data[i].user.screen_name + "\n ' " +
+                "\nUser:  " + data[i].user.name + "  |  @" + data[i].user.screen_name + "\n ' " +
                 data[i].text + " ' " + "\nCreated: " + data[i].created_at + "\n"
             )
         }
@@ -48,12 +49,24 @@ function spotifyThisSong() {
           return console.log('Error occurred: ' + err);
         }
       var results = data.tracks.items;
+      var artistsObj = results[0].artists;
+      var artistsArr = "";
+      for (i = 0; i < artistsObj.length; i++) {
+        if (i === artistsObj.length - 1) {
+            artistsArr = artistsArr + results[0].artists[i].name
+        } else {
+            artistsArr = artistsArr + results[0].artists[i].name + ", "
+        }
+      };
       console.log(
           "\nTitle: " + results[0].name +
-          "\nArtists: " + results[0].artists[0].name +  // puts an object for each artist, loop through and grab ALL artist names
+          "\nArtists: " + artistsArr +
           "\nAlbum: " + results[0].album.name +
-          "\nLink: " + results[0].external_urls.spotify
-      )
-      console.log(results[0].artists) // search "X Black Panther" to see what i mean. Make a for loop
+          "\nLink: " + results[0].external_urls.spotify + "\n"
+      );
     });
+}
+
+function movieThis() {
+    
 }
