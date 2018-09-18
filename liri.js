@@ -26,7 +26,7 @@ switch (cmnd) {
         break;
     case "do-what-it-says":
         doWhatItSays();
-        // logCommand(); // I commented this out because i'm afraid of an infinite loop. Highly unlikely, but if you ran do-what-it-says, and it picked do-what-it-says, and then it picked do-what-it-says... You see where i'm going with this?
+         logCommand();
         break;
     default:
         console.log("\nPlease enter a valid command\n   • my-tweets\n   • spotify-this-song\n   • movie-this\n   • do-what-it-says")
@@ -120,8 +120,8 @@ function doWhatItSays() {
             case "movie-this":
                 movieThis();
                 break;
-            // case "do-what-it-says": // Commented out because these arent being logged to the random.txt
-            //     doWhatItSays();
+            case "do-what-it-says":
+                doWhatItSays();
         }
     });
 }
