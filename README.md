@@ -17,3 +17,21 @@ LIRI takes in 4 preset commands:
     * Perfect for the indecisive! Picks a random command that was run previously and runs it again.
 
 If you can't remember these, don't worry! Running LIRI with no command will list all accepted input
+
+## Requirements
+
+To run this program, you must have a .env file with the following structure
+
+```
+# Spotify API keys
+
+SPOTIFY_ID=YourIDHere
+SPOTIFY_SECRET=YourSecretHere
+
+# Twitter API keys
+
+TWITTER_CONSUMER_KEY=YourKeyHere
+TWITTER_CONSUMER_SECRET=YourSecretHere
+TWITTER_ACCESS_TOKEN_KEY=YourKeyHere
+TWITTER_ACCESS_TOKEN_SECRET=YourSecretHere
+```
